@@ -1,7 +1,15 @@
 public class Node {
-    private Integer value;
-    public Node(Integer value){ this.value = value; }
-    public int getValue() {
+    private char value;
+    public Node(char value){
+        this.value = value;
+    }
+    public char getValue() {
         return value;
+    }
+    @Override
+    public String toString() {
+        return "Node{" +
+                "value=" + value +
+                '}';
     }
 }
