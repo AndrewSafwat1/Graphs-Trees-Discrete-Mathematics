@@ -15,11 +15,11 @@ public class Graph {
         return adjacencyMatrix;
     }
     private String print2dArray(int[][] array) {
-        String result = "";
-        for(int i = 0; i < array.length; i++) {
-            result += Arrays.toString(array[i]) + "\n";
+        StringBuilder result = new StringBuilder();
+        for(int[] ints : array) {
+            result.append(Arrays.toString(ints)).append("\n");
         }
-        return result;
+        return result.toString();
     }
     public int[] dijkstra(int[][] graph, int source){
         int v = graph.length;
