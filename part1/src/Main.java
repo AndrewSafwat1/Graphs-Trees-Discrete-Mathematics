@@ -24,11 +24,16 @@ public class Main {
         char destination = scan.next().charAt(0);
         int[] distance = g.dijkstra(g.getAdjacencyMatrix(), (int)source - 65);
         ArrayList<Integer> path = g.getPath((int)destination - 65);
-        System.out.print("Shortest path from " + source + " to " + destination + " is: ");
-        for(int i = 0; i < path.size(); i++) {
-            System.out.print((char)(path.get(i)+65) + " ");
+        if(distance[(int)destination - 65] == Integer.MAX_VALUE || distance[(int)destination - 65] < 0){
+            System.out.println("There is no path from " + source + " to " + destination);
         }
-        System.out.println();
-        System.out.println("Total distance: " + distance[(int)destination - 65] + " miles");
+        else{
+            System.out.print("Shortest path from " + source + " to " + destination + " is: ");
+            for(int i = 0; i < path.size(); i++) {
+                System.out.print((char)(path.get(i)+65) + " ");
+            }
+            System.out.println();
+            System.out.println("Total distance: " + distance[(int)destination - 65] + " miles");
+        }
     }
 }
