@@ -32,11 +32,17 @@ public class Tree {
 
     }
     public void SolutionIterative(){
-        int x;
+        int x = 0;
         Node root = new Node();
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter the value of the root node: ");
-        x = sc.nextInt();
+        try {
+            x = sc.nextInt();
+        } catch (Exception e){
+            System.out.println("You didn't enter a value, please try again.");
+            System.exit(0);
+        }
+
         if(x != -1) {
             root.setValue(x);
             root = handleInput(root);
@@ -75,27 +81,37 @@ public class Tree {
         }
 
         System.out.println("Enter left child value of " + node.getValue() +" (or -1 to skip):");
-        left = sc.nextInt();
-
-        if(left != -1){
-            newNode = new Node();
-            newNode.setValue(left);
-            node.setLeft(newNode);
-            nodes.add(newNode);
-        }else{
-            node.setLeft(null);
+        try{
+            left = sc.nextInt();
+            if(left != -1){
+                newNode = new Node();
+                newNode.setValue(left);
+                node.setLeft(newNode);
+                nodes.add(newNode);
+            }else{
+                node.setLeft(null);
+            }
+        }catch (Exception e){
+            System.out.println("You didn't enter a value, please try again.");
+            System.exit(0);
         }
 
         System.out.println("Enter right child value of " + node.getValue() +" (or -1 to skip):");
-        right = sc.nextInt();
-        if(right != -1){
-            newNode = new Node();
-            newNode.setValue(right);
-            node.setRight(newNode);
-            nodes.add(newNode);
-        }else{
-            node.setRight(null);
+        try {
+            right = sc.nextInt();
+            if(right != -1){
+                newNode = new Node();
+                newNode.setValue(right);
+                node.setRight(newNode);
+                nodes.add(newNode);
+            }else{
+                node.setRight(null);
+            }
+        }catch (Exception e){
+            System.out.println("You didn't enter a value, please try again.");
+            System.exit(0);
         }
+
 
         if(nodes.peek() != null)
             handleInput(nodes.remove());

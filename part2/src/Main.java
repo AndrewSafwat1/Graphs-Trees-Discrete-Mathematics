@@ -47,7 +47,7 @@ public class Main {
         }
 
 
-        ArrayList<Node> answer = g.color();
+        ArrayList<Node> answer = g.colorGraph();
         System.out.println("Optimized Class Schedule:");
         for (Node node : answer) {
             System.out.println(reverseHashtable.get(node.getValue()) + " - " + node.getColor());
